@@ -1,0 +1,13 @@
+version: "3.4"
+services:
+  redis:
+    image: redis
+  web:
+    build: .
+    image: gcr.io/rydercalmdown/stranger-things-lights
+    environment:
+        - REDIS_HOST=redis
+    depends_on:
+      - "redis"
+    ports:
+      - "5000:5000"
