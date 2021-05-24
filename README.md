@@ -1,2 +1,5 @@
 # Stranger Things Lights
-This is the code from my stranger things lights project. It's comprised of a firmware component designed to run on an ESP8266, and a server component made of flask and redis.
+This is the raspberry pi based code for my stranger things project.
+
+## Deployment
+I run the project as two separate servers, but you can run it all on one raspberry pi with port forwarding - it's just less secure.

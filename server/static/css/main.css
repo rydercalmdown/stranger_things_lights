@@ -3,22 +3,30 @@ html, body {
     background-color: black;
 }
 
-body {
-    background-image: url(../img/background.jpg);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-color: transparent;
-}
-
-.container {
-    position: fixed;
-    top: 0;
-}
-
 #particles canvas{
     position: fixed;
     width: 100%;
     height: 100%;
     z-index: -1;
 }
+
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+  }
+  
+  #overlay {
+    position: relative;
+    padding: 50px;
+  }

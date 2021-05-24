@@ -11,3 +11,10 @@ services:
       - "redis"
     ports:
       - "5000:5000"
+  # worker:
+  #   build: .
+  #   image: gcr.io/rydercalmdown/stranger-things-lights-worker
+  #   environment:
+  #       - SERVER_HOST=web
+  #   depends_on:
+  #     - "web"

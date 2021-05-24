@@ -6,11 +6,11 @@ import redis
 
 redis_client = redis.StrictRedis(host=os.environ.get('REDIS_HOST'), port=6379, db=0)
 app = Flask(__name__)
+char_limit = 15
 
 
 def schedule_word(req):
     """Schedules the word"""
-    char_limit = 15
     word = req.values.get('word', '').replace(" ", "").lower()
     regex = re.compile('[^a-z]')
     word = regex.sub('', word)
@@ -28,12 +28,15 @@ def index():
             return render_template("index.html", message='Message sent')
         return render_template("index.html", message='Error')
     else:
-        return render_template("index.html")
+        context = {
+            'char_limit': char_limit
+        }
+        return render_template("index.html", **context)
 
 
 @app.route('/next/')
 def get_next_word():
-    if request.args.get('key') == os.environ.get('NEXT_WORD_KEY', 'replace'):
+    if request.args.get('key') == os.environ.get('API_KEY', 'replace'):
         if redis_client.llen('word_list') > 0:
             word = redis_client.rpop('word_list')
             return word
