@@ -1,0 +1,4 @@
+**/DS_Store
+*.pyc
+**/environment.sh
+**/banned.txt
