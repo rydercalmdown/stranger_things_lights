@@ -80,7 +80,7 @@ class UpsideDownDisplay():
     
     def _clear_all_leds(self):
         self.leds.fill((0, 0, 0))
-        all_pixels.show()
+        self.leds.show()
 
     def _get_colour_dict(self):
         """Returns a dict of standard colours"""
