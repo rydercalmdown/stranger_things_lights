@@ -11,9 +11,11 @@ class UpsideDownDisplay():
     def __init__(self, num_leds=):
         self.num_leds = 100
         self.char_limit = 15
+        self.data_pin = board.D18
         self.character_delay = 0.0 # how long to wait between characters
         self.character_time = 1.0 # how long to display characters for
         self.message_delay = 3.0 # how long to wait between messages
+        self._setup_leds()
 
     def set_letter_mappings(self, letter_mappings):
         """Set letter to LED mappings for the display"""
@@ -22,7 +24,7 @@ class UpsideDownDisplay():
     def _setup_leds(self):
         """Set up the LEDs (ws2811 12v)"""
         self.leds = neopixel.NeoPixel(
-            board.D18,
+            self.data_pin,
             self.num_leds,
             brightness=1,
             auto_write=False,
