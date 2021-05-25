@@ -66,7 +66,7 @@ class UpsideDownDisplay():
         self.leds[led_number] = [0, 0, 0]
         if update_now:
             self.leds.show()
-    
+
     def _get_colour_dict(self):
         """Returns a dict of standard colours"""
         return {
