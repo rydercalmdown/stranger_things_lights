@@ -120,7 +120,7 @@ class UpsideDownDisplay():
         """Displays the message on the LEDs"""
         self._twinkle_leds()
         for character in message:
-            self.display_character(character)
+            self._display_character(character)
 
     def run(self):
         """Run the worker"""
