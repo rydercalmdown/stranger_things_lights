@@ -16,7 +16,7 @@ class UpsideDownDisplay():
         self.data_pin = board.D18
         self.character_delay = 0.0 # how long to wait between characters
         self.character_time = 1.0 # how long to display characters for
-        self.message_delay = 3.0 # how long to wait between messages
+        self.message_delay = 2.0 # how long to wait between messages
         self._setup_leds()
 
     def set_letter_mappings(self, letter_mappings):
@@ -118,6 +118,8 @@ class UpsideDownDisplay():
         """Flash a character on the LEDs"""
         led_number = self.letter_mappings.get(str(character).lower())
         if not led_number:
+            time.sleep(self.character_time)
+            time.sleep(self.character_delay)
             return
         self._set_led(led_number, self._get_random_colour())
         time.sleep(self.character_time)
