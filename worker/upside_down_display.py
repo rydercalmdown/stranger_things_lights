@@ -88,7 +88,7 @@ class UpsideDownDisplay():
 
     def _get_random_colour(self):
         """Returns a random colour from a predefined dict"""
-        return random.choice(self._get_colour_dict().items())[1]
+        return random.choice(list(self._get_colour_dict().items()))[1]
 
     def _twinkle_leds(self, num_times=10, delay=0.01, num_choices=10):
         """Twinkle the LEDs to catch attention"""
