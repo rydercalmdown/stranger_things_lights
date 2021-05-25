@@ -41,19 +41,18 @@ class UpsideDownDisplay():
     def _get_server_url(self):
         host = self._get_server_host()
         key = self._get_server_key()
-        if host == 'web':
-            protocol = 'http'
-        else:
-            protocol = 'https'
-        return protocol + '://' + host + '/next?key=' + key
+        return host + '/next?key=' + key
 
     def _get_latest_message(self):
-        response = requests.get(self._get_server_url())
-        if response.status_code != 200:
-            return
-        if not response.text:
-            return
-        if len(response.text) > self.char_limit:
+        try:
+            response = requests.get(self._get_server_url())
+            if response.status_code != 200:
+                return
+            if not response.text:
+                return
+            if len(response.text) > self.char_limit:
+                return
+        except Exception:
             return
         self._display_message(response.text)
 
