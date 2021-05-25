@@ -36,7 +36,7 @@ class UpsideDownDisplay():
 
     def _get_server_key(self):
         """Fetch the API key for the server"""
-        return os.environ.get('SERVER_KEY')
+        return os.environ.get('SERVER_KEY', '')
 
     def _get_server_url(self):
         host = self._get_server_host()
