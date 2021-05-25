@@ -46,8 +46,9 @@ class UpsideDownDisplay():
         return host + '/next?key=' + key
 
     def _get_latest_message(self):
-        print('getting latest')
         try:
+            server_url = self._get_server_url()
+            print(f'fetching {server_url}')
             response = requests.get(self._get_server_url())
             if response.status_code != 200:
                 return
