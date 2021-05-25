@@ -55,6 +55,7 @@ class UpsideDownDisplay():
                 return
             if len(response.text) > self.char_limit:
                 return
+            print(response.text)
         except Exception as e:
             logging.error(e)
             return
