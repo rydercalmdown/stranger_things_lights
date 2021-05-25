@@ -1,5 +1,7 @@
 import os
 import random
+import logging
+import time
 import requests
 import neopixel
 import board
@@ -44,6 +46,7 @@ class UpsideDownDisplay():
         return host + '/next?key=' + key
 
     def _get_latest_message(self):
+        print('getting latest')
         try:
             response = requests.get(self._get_server_url())
             if response.status_code != 200:
@@ -52,7 +55,8 @@ class UpsideDownDisplay():
                 return
             if len(response.text) > self.char_limit:
                 return
-        except Exception:
+        except Exception as e:
+            logging.error(e)
             return
         self._display_message(response.text)
 
