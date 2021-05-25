@@ -33,6 +33,8 @@ class UpsideDownDisplay():
             pixel_order=neopixel.RGB)
         self.leds.fill((255, 255, 255))
         self.leds.show()
+        time.sleep(1)
+        self._clear_all_leds()
 
     def _get_server_host(self):
         """Fetch the hotsname of the server"""
@@ -75,6 +77,10 @@ class UpsideDownDisplay():
         self.leds[led_number] = [0, 0, 0]
         if update_now:
             self.leds.show()
+    
+    def _clear_all_leds(self):
+        self.leds.fill((0, 0, 0))
+        all_pixels.show()
 
     def _get_colour_dict(self):
         """Returns a dict of standard colours"""
