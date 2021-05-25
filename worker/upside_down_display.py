@@ -105,7 +105,7 @@ class UpsideDownDisplay():
         for _ in range(0, num_times):
             choices = [random.randint(0, self.num_leds - 1) for x in range(0, num_choices)]
             for i in choices:
-                brightness = random.randint(1, 255)
+                brightness = random.randint(1, 10)
                 self.leds[i] = [brightness, brightness, brightness]
             self.leds.show()
             time.sleep(delay)
