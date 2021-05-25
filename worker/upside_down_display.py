@@ -31,10 +31,7 @@ class UpsideDownDisplay():
             brightness=1,
             auto_write=False,
             pixel_order=neopixel.RGB)
-        self.leds.fill((255, 255, 255))
-        self.leds.show()
-        time.sleep(1)
-        self._clear_all_leds()
+        self._twinkle_leds(100)
 
     def _get_server_host(self):
         """Fetch the hotsname of the server"""
