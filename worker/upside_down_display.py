@@ -8,8 +8,8 @@ import board
 class UpsideDownDisplay():
     """Displays messages on LEDs from the upside down"""
 
-    def __init__(self, num_leds=):
-        self.num_leds = 100
+    def __init__(self, num_leds=100):
+        self.num_leds = num_leds
         self.char_limit = 15
         self.data_pin = board.D18
         self.character_delay = 0.0 # how long to wait between characters
