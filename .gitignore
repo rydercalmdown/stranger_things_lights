@@ -2,3 +2,4 @@
 *.pyc
 **/environment.sh
 **/banned.txt
+**/secret.yaml

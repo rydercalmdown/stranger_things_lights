@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stranger-things-lights-redis
+  labels:
+    app: stranger-things-lights
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stranger-things-lights
+      tier: redis
+  template:
+    metadata:
+      labels:
+        app: stranger-things-lights
+        tier: redis
+    spec:
+      containers:
+        - image: redis:6
+          name: redis
+          ports:
+            - containerPort: 6379
+              name: redis

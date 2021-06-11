@@ -4,7 +4,7 @@ services:
     image: redis
   web:
     build: .
-    image: gcr.io/rydercalmdown/stranger-things-lights
+    image: gcr.io/radical-sloth/stranger-things-lights
     environment:
         - REDIS_HOST=redis
         - SERVER_KEY=test

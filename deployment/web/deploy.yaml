@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stranger-things-lights-web
+  labels:
+    app: stranger-things-lights-web
+spec:
+  selector:
+    matchLabels:
+      app: stranger-things-lights-web
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: stranger-things-lights-web
+    spec:
+      containers:
+      - name: stranger-things-lights-web
+        image: gcr.io/radical-sloth/stranger-things-lights:latest
+        imagePullPolicy: Always
+        env:
+          - name: REDIS_HOST
+            value: "stranger-things-lights-redis.default.svc.cluster.local"
+          - name: SERVER_KEY
+            valueFrom:
+              secretKeyRef:
+                name: stranger-things-lights-web
+                key: server_key
+        ports:
+        - containerPort: 5000
