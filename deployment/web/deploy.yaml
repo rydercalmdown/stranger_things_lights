@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: stranger-things-lights-web
-        image: gcr.io/radical-sloth/stranger-things-lights:latest
+        image: registry.digitalocean.com/radical-sloth/stranger-things-lights:latest
         imagePullPolicy: Always
         env:
           - name: REDIS_HOST

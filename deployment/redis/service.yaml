@@ -6,7 +6,10 @@ metadata:
     app: stranger-things-lights
 spec:
   ports:
-    - port: 6379
+    - name: https
+      protocol: TCP
+      port: 6379
+      targetPort: 6379
   selector:
     app: stranger-things-lights
     tier: redis
