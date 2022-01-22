@@ -2,19 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: stranger-things
-  name: stranger-things-lights-redis
+  name: redis
   labels:
-    app: stranger-things-lights
+    app: stranger-things
+    tier: redis
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: stranger-things-lights
+      app: stranger-things
       tier: redis
   template:
     metadata:
       labels:
-        app: stranger-things-lights
+        app: stranger-things
         tier: redis
     spec:
       containers:

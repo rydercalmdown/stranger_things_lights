@@ -2,30 +2,33 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: stranger-things
-  name: stranger-things-lights-web
+  name: web
   labels:
-    app: stranger-things-lights-web
+    app: stranger-things
+    tier: flask
 spec:
   selector:
     matchLabels:
-      app: stranger-things-lights-web
+      app: stranger-things
+      tier: flask
   replicas: 1
   template:
     metadata:
       labels:
-        app: stranger-things-lights-web
+        app: stranger-things
+        tier: flask
     spec:
       containers:
-      - name: stranger-things-lights-web
+      - name: stranger-things
         image: registry.digitalocean.com/radical-sloth/stranger-things-lights:latest
         imagePullPolicy: Always
         env:
           - name: REDIS_HOST
-            value: "stranger-things-lights-redis.default.svc.cluster.local"
+            value: "redis.stranger-things.svc.cluster.local"
           - name: SERVER_KEY
             valueFrom:
               secretKeyRef:
-                name: stranger-things-lights-web
+                name: web
                 key: server_key
         ports:
         - containerPort: 5000
